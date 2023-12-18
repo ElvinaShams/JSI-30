@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header></header>
+    <main id="target" class="target" name="target"></main>
+    <article></article>
+    <footer></footer>
+    <script>
+      const main1 = document.getElementById("target");
+      console.log("main1", main1);
+
+      const main2 = document.querySelector(".target");
+      console.log("main2", main2);
+
+      const main3 = document.querySelector('[name="target"]');
+      console.log("main3", main3);
+
+      const main4 = document.querySelector("main");
+      console.log("main4", main4);
+
+      const main5 = document.getElementsByTagName("main");
+      console.log("main5", main5);
+
+      const main6 = document.querySelector("body main");
+      console.log("main6", main6);
+
+      const body = document.body;
+      const main7 = body.querySelector("main");
+      console.log("main7", main7);
+    </script>
+  </body>
+</html>
