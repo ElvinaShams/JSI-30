@@ -6,7 +6,7 @@ function logger() {
   }
   const obj = { item: 'some value' };
 
-  const boundLogger = logger.bind(obj);
+  const boundLogger = logger.bind(obj)();
   const boundLogger1 = logger.call(obj);
   const boundLogge2 = logger.apply(obj); 
   
@@ -72,10 +72,14 @@ function logger() {
   // Бонус
   // Реализовать полифил(собственную функцию реализующую встроенную в js) метода bind()
   
-  function bind(fn, context, ...rest) {
-    return function(...args) {
-      return fn.call(context, ...rest.concat(args))
-    }
-  }
+  Function.prototype.myBind = function (context) {
+    const fn = this;
+    const args = Array.prototype.slice.call(arguments, 1);
+    
+        return function () {
+          const boundArgs = Array.prototype.slice.call(arguments);
+          return fn.apply(context, args.concat(boundArgs));
+        };
+      };
   
   //
